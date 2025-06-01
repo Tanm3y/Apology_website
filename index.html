@@ -107,6 +107,14 @@
       noBtn.style.top = j + 'px';
     });
   </script>
+<script>
+  // Enable audio after first interaction
+  document.addEventListener('click', function () {
+    if (audio1.paused) {
+      audio1.play();
+    }
+  }, { once: true }); // Ensures it only triggers once
+</script>
 
 </body>
 </html>
