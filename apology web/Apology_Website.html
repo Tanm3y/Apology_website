@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Forgive Me?</title>
+
+  
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f0fff0;
+      font-family: 'Pacifico', cursive, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    h1 {
+      color: #147814;
+      text-align: center;
+      font-size: 2.2em;
+    }
+
+    #buttons {
+      margin-top: 30px;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 10px;
+      transition: 0.3s;
+    }
+
+    #yesBtn {
+      background-color: #36fb28;
+      color: white;
+    }
+
+    #noBtn {
+      background-color: #d3d3d3;
+      color: #333;
+      position: absolute;
+    }
+
+    #message {
+      margin-top: 40px;
+      font-size: 24px;
+      color: #359315;
+      text-align: center;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Kashu, I’m really sorry... Will you forgive me? 😔</h1>
+
+  <div id="buttons">
+    <button id="yesBtn">Forgive Me</button>
+    <button id="noBtn">No</button>
+  </div>
+
+  <div id="message">Yay! I knew you’d forgive me ❤️ I love you so much 🫶🏻!</div>
+
+
+  <audio id="audio1" autoplay loop hidden>
+    <source src="Pretty Little Baby - (Raag.Fm).mp3" type="audio/mpeg">
+  </audio>
+
+  <audio id="audio2" loop hidden>
+    <source src="O Rangrez (Bhaag Milkha Bhaag) - (Raag.Fm).mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    const message = document.getElementById('message');
+
+    const audio1 = document.getElementById('audio1');
+    const audio2 = document.getElementById('audio2');
+
+    yesBtn.addEventListener('click', () => {
+      message.style.display = 'block';
+      noBtn.style.display = 'none';
+      yesBtn.style.display = 'none';
+
+      
+      audio1.pause();
+      audio1.currentTime = 0;
+      audio2.play();
+    });
+
+    noBtn.addEventListener('mouseover', () => {
+      const i = Math.floor(Math.random() * (window.innerWidth - 100));
+      const j = Math.floor(Math.random() * (window.innerHeight - 100));
+      noBtn.style.left = i + 'px';
+      noBtn.style.top = j + 'px';
+    });
+  </script>
+
+</body>
+</html>
